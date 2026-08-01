@@ -25,10 +25,18 @@ expense-tracker/
 │── README.md
 │── AI_NOTES.md
 │── src/
-│── tests/
+│   │── main/java/...      # application source
+│   └── test/java/...      # test suite (standard Maven location)
+│── tests/                 # pointer to the Maven test suite above
 ```
 
+This is a Maven project, so tests live under `src/test/java` (Maven's
+required convention for `./mvnw test` to discover them). The top-level
+`tests/` folder contains a short README pointing to them.
+
 ## Installation
+
+Requires Java 17+ installed.
 
 ```bash
 git clone <repository-url>
@@ -37,30 +45,34 @@ cd expense-tracker
 
 ## Run the Application
 
+Linux/macOS
+
+```bash
+chmod +x mvnw
+./mvnw spring-boot:run
+```
+
 Windows
 
 ```bash
 mvnw.cmd spring-boot:run
 ```
 
+The server starts on `http://localhost:8080`.
+
+## Run Tests
+
 Linux/macOS
 
 ```bash
-./mvnw spring-boot:run
+chmod +x mvnw
+./mvnw test
 ```
-
-## Run Tests
 
 Windows
 
 ```bash
 mvnw.cmd test
-```
-
-Linux/macOS
-
-```bash
-./mvnw test
 ```
 
 ## Swagger
